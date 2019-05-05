@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
+# please set to script path
+cd ${HOME}/src/kattyaina_feed
+
+# please set to mastodon API token
+export MASTODON_TOKEN=xxxxxxxxx
+
+ruby ./kattyaina_today.rb
