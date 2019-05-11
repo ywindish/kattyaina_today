@@ -5,7 +5,7 @@
   eval "$(rbenv init -)"
 
 # please set to script path
-cd ${HOME}/src/kattyaina_feed
+cd ${HOME}/src/kattyaina_today
 
 # please set to mastodon API token
 export MASTODON_TOKEN=xxxxxxxxx
