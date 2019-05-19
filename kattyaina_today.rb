@@ -42,7 +42,7 @@ if today_items.empty?
   message = '本日発売のゲームが見つかりませんでした。安心して積みゲーを崩せるかも。'
 else
   message = <<TOOT
-本日発売のゲームはこちらです。あなたが積みたいゲームはありましたか？
+本日発売のゲームはこちらです。カッチャイナー
 
 #{today_items.join("\n")}
 TOOT
