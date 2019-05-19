@@ -1,4 +1,5 @@
 # kattyaina_today.rb
+# TODO ちゃんと spec を書けるようにしよう
 #
 require 'json'
 require 'uri'
@@ -30,7 +31,9 @@ result['result']['items'].each do |item|
   if item['sdate'] != today_str
     next
   end
-  today_items.push sprintf('%s: %s %d円', item['maker'], item['title'], item['current_price'])
+  # TODO 長すぎてtootできないことがあるのでタイトルだけにして様子を見る。current_price は nil のこともあるので注意
+  #today_items.push sprintf('%s: %s %d円', item['maker'], item['title'], item['current_price'])
+  today_items.push item['title']
 end
 
 # building toot message
@@ -44,6 +47,7 @@ else
 #{today_items.join("\n")}
 TOOT
 end
+message = message.slice(0,498) + '..' if message.size > 500 # 長過ぎるときは省略
 pp message
 
 # toot!
