@@ -22,7 +22,7 @@ class KattyainaBot
   end
 
   def get_schedules_json
-    query_date = @target_date.strftime('%YB%m')
+    query_date = @target_date.strftime('%YF%m')
     url = %Q(https://search.nintendo.jp/nintendo_soft/search.json?opt_sshow=1&xopt_ssitu[]=sales_termination&fq=sodate_s%3A%5B#{query_date}%20TO%20*%5D&limit=300&page=1&sort=sodate%20asc%2Chards%20asc%2Csform_s%20asc%2Ctitle%20asc&opt_sche=1)
     uri = URI.parse(url)
     json = Net::HTTP.get(uri)
@@ -61,7 +61,7 @@ class KattyainaBot
     pp message
   end
 
-  def toot
+  def toot(message)
     client = Mastodon::REST::Client.new(base_url: 'https://funayurei.windish.jp', bearer_token: ENV['MASTODON_TOKEN'])
     client.create_status(message)
   end
