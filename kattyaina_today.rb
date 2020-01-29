@@ -1,5 +1,4 @@
 # kattyaina_today.rb
-# TODO ちゃんと spec を書けるようにしよう
 #
 require 'json'
 require 'uri'
@@ -22,13 +21,15 @@ class KattyainaBot
   end
 
   def get_schedules_json
-    query_date = @target_date.strftime('%YF%m')
+    # 真ん中の文字が変わることがある F, A など
+    query_date = @target_date.strftime('%YA%m')
     url = %Q(https://search.nintendo.jp/nintendo_soft/search.json?opt_sshow=1&xopt_ssitu[]=sales_termination&fq=sodate_s%3A%5B#{query_date}%20TO%20*%5D&limit=300&page=1&sort=sodate%20asc%2Chards%20asc%2Csform_s%20asc%2Ctitle%20asc&opt_sche=1)
     uri = URI.parse(url)
     json = Net::HTTP.get(uri)
-    # File.open(__dir__ + '/spec/result.json', 'w') do |f|
-    #   f.print json # backup
-    # end
+    # あとで検証する用に永続化しとく
+    File.open(__dir__ + '/tmp/result.json', 'w') do |f|
+      f.print json # backup
+    end
     # TODO テスト用。rspec をかいておきたいところ
     # json = File.open(__dir__ + '/spec/result.json') do |f|
     #   f.read
@@ -69,3 +70,6 @@ class KattyainaBot
 end
 
 KattyainaBot.new.run
+# TODO 引数を渡せるように。dry-run とかも指定できるとよい
+# KattyainaBot.new(Date.parse("2020.1.30")).run
+
