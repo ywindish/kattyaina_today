@@ -7,5 +7,6 @@ export MASTODON_TOKEN=xxxxxxxxx
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
 
-cd $(dirname $0)
+cd ${HOME}/src/ywindish/kattyaina_today
+
 ruby ./kattyaina_today.rb
