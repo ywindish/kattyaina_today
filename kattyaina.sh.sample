@@ -1,12 +1,22 @@
 #!/bin/bash
 
-# Please set your Mastodon API token
+# Required, please set your mastodon instance URL
+export MASTODON_URL='https://funayurei.windish.jp'
+
+# Required, please set your mastodon API token
 export MASTODON_TOKEN=xxxxxxxxx
+
+# Not required
+#export TARGET_DATE=2020.8.16
+
+# Not required, without connect to mastodon
+#export DRY_RUN=1
+
+# Please set path of kattyaina_today.rb
+cd ${HOME}/src/ywindish/kattyaina_today
 
 [[ -d ~/.rbenv  ]] && \
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
-
-cd ${HOME}/src/ywindish/kattyaina_today
 
 ruby ./kattyaina_today.rb
