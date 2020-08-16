@@ -4,6 +4,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     buftok (0.2.0)
+    diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     http (3.3.0)
@@ -22,6 +23,19 @@ GEM
       oj (~> 3.7)
     oj (3.10.8)
     public_suffix (4.0.5)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.2)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
@@ -31,6 +45,7 @@ PLATFORMS
 
 DEPENDENCIES
   mastodon-api
+  rspec
 
 BUNDLED WITH
    1.17.2

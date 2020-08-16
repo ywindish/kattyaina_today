@@ -1,4 +1,4 @@
-# kattyaina_today.rb
+# kattyaina_bot.rb
 #
 require 'json'
 require 'uri'
@@ -9,6 +9,8 @@ require 'logger'
 require 'mastodon' # https://github.com/tootsuite/mastodon-api
 
 class KattyainaBot
+
+  attr_accessor :base_url, :token, :target_date, :dry_run
 
   def initialize(base_url, token, target_date=nil, dry_run=nil)
     @logger = Logger.new(STDOUT)
@@ -73,10 +75,3 @@ class KattyainaBot
   end
 
 end
-
-KattyainaBot.new(
-  ENV['MASTODON_URL'],
-  ENV['MASTODON_TOKEN'],
-  ENV['TARGET_DATE'],
-  ENV['DRY_RUN']
-).run
