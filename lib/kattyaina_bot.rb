@@ -15,7 +15,12 @@ class KattyainaBot
   def initialize(base_url, token, target_date=nil, dry_run=nil)
     @logger = Logger.new(STDOUT)
 
-    @target_date = target_date || Date.today
+    @target_date = begin
+      Date.parse(target_date)
+    rescue Exception => e
+      Date.today
+    end
+
     @base_url = base_url
     @token = token
     @dry_run = dry_run
