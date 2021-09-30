@@ -66,7 +66,7 @@ class KattyainaBot
       # message = '本日発売のゲームが見つかりませんでした。安心して積みゲーを崩せるかも。'
       @logger.info("result message: empty.")
     else
-      message = "本日発売のゲームはこちらです。カッチャイナー\n\n#{items.join("\n")}"
+      message = "本日発売！カッチャイナー\n\n#{items.join("\n")}"
       message = message.slice(0,498) + '..' if message.size > 500 # too large
       @logger.info("result message: #{message}")
     end
